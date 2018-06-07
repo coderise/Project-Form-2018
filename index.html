@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Amigos Peludos</title>
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css"  href='css/style.css' />
+  
+    
+  </head>
+  <body>
+    <header>
+      <h1>Formulario de Adopción</h1>
+      <!--boton para desplegar el formulario-->
+      <button class="btn btn-primary"  id="Formulario">Acceder al Formulario</button>
+    </header>
+    </br>
+    <div class="container" id="container">
+     <div class="card">
+      <div class="card-header" id="div_FS">
+        <!--inserte la fecha en la cual se expende el formulario-->
+        <label id="fecha_solicitud">Fecha de solicitud</label>
+        <input type="date" class="form-control" name=fecha_solicitud id="date-Fecha">
+      </div>
+      <div class="card-body">
+       <section id="campos_formulario">
+       <form action="post" name="formulario-AP" onsubmit="returm validar()">
+        <div class="row">
+         <div class="col">
+
+          <!--inserte el nombre completo-->
+          <label>Nombre Completo</label>
+          <br/>
+          <input type="text" class="form-control" name="nombre" id="txt-name" placeholder="Pepito Perez" required/>
+         </div>
+         <br/>
+         <div class="col">
+          <!--inserte una fecha de nacimiento valida-->
+          <label>Fecha De Nacimiento</label>
+          <br/>
+          <input type="date" class="form-control" name="fecha_nacimiento" id="date-nacimiento" required/>
+         </div>
+        </div> <!--class="row"-->
+        <br/>
+        <div class="row">
+          <div class="col">
+          <!--inserte un correo electronico valido-->
+          <label>Correo Electrónico</label>
+          <br/>
+          <input type="email" class="form-control" name="Correo" id="email-correo" placeholder="alguien@ejemplo.com" required/>
+        </div>
+        <br/>
+         <div class="col">
+          <!--inserte un numero de telefono valido-->
+          <label>Telefono</label>
+          <br/>
+          <input type="text" class="form-control" name="telefono" id="text-telefono" placeholder = "5557776" required/>
+         </div>
+        </div> <!--class="row"-->
+        <br/>
+        <!--Selecciona el genero-->
+        <div id="genero">
+          <label>Seleccione su género:</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio-genero" value="Masculino">
+            <label class="form-check-label" for="inlineRadio-Masculino">Masculino</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio-genero" value="Femenino">
+            <label class="form-check-label" for="inlineRadio-Femenino">Femenino</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions1" id="inlineRadio-genero" value="Otro">
+            <label class="form-check-label" for="inlineRadio-otro">Otro</label>
+          </div>
+        </div>
+        <br/>
+        <div class="row">
+         <div class="col">
+          <!--selecciona un departamento-->
+          <label>Departamento</label>
+          <select class="form-control" name="Departamento" id="departamentos">
+            <option value="seleccion-d" id="o">Selecciona un Departamento</option>
+          </select>
+         </div>
+         <div class="col">
+          <label>Ciudad</label>
+          <select class="form-control" name="Ciudad" id="ciudades">
+            <option value="seleccion-c" id="e">Selecciona una Ciudad</option>
+          </select>
+         </div>
+        </div>
+          <br/>
+          <!--inserte una direccion valida-->
+          <label>Dirección</label>
+          <br/>
+          <input type="text" class="form-control" name="direccion" id="text-direccion" placeholder="Cra 22 #22c -22" required/>
+        <br/>
+        <!--seleccione el tipo de domicilio, en caso de ser otro especifique-->
+        <div >
+          <label>Seleccione el tipo de domicilio:</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio-domicilio" value="Casa">
+            <label class="form-check-label" for="inlineRadio-domicilioC">Casa</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio-domicilio" value="Apartamento">
+            <label class="form-check-label" for="inlineRadio-domicilioA">Apartamento</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio-domicilio" value="Finca">
+            <label class="form-check-label" for="inlineRadio-domicilioF">Finca</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions2" id="inlineRadio-domicilio" value="Otro">
+            <label class="form-check-label" for="inlineRadio-domicilioO">Otro</label>
+          </div>
+          <br/>
+          <div id="text-otro">
+          <label>Especifique "otro"</label>
+          <br/>
+          <input type="text" class="form-control" name="otro">
+          </div>
+        </div>
+        <br/>
+        <div class="row">
+         <div class="col">
+          <!--inserte la cantidad de personas que viven en el domicilio-->
+          <label>Numero de integrantes del domicilio</label>
+          <br/>
+          <input type="text" class="form-control" name="#dePersonas" id="text-integrantes" required/>
+         </div>
+        <br/>
+        <!--preguntas abiertas para el usuario-->
+         <div class="col">
+          <label>¿Por qué quieres adoptar una mascota?</label>
+          <br/>
+          <input type="text" class="form-control" name="pregunta1" id="text-pregunta1" required/>
+         </div>
+        </div>
+        <br/>
+        <div class="row">
+         <div class="col">
+          <label>¿Tienes experiencia con los animales?</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadio-experiencia" value="Si">
+            <label class="form-check-label" for="inlineRadio-experienciaS">Si</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions3" id="inlineRadio-experiencia" value="No">
+            <label class="form-check-label" for="inlineRadio-experienciaN">No</label>
+          </div>
+         </div>
+        <br/>
+         <div class="col">
+          <label>¿Tienes otras mascotas?</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions4" id="inlineRadio-mascotas" value="Si">
+            <label class="form-check-label" for="inlineRadio-mascotasS">Si</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions4" id="inlineRadio-mascotas" value="No">
+            <label class="form-check-label" for="inlineRadio-mascotasN">No</label>
+          </div>
+         </div>
+        </div>
+        <br/>
+        <div class="row">
+         <div class="col">
+          <label>¿Cuáles son tus ingresos mensuales?</label>
+          <br/>
+          <input type="text" class="form-control" name="pregunta2" id="text-pregunta2" placeholder="$500.000" required/>
+         </div>
+        <br/>
+         <div class="col">
+          <label>¿Cuántos ingresos dispones para tu mascota?</label>
+          <br/>
+          <input type="text" class="form-control" name="pregunta3" id="text-pregunta3" placeholder="$200.000" required/>
+         </div>
+        </div>
+        <br/>
+        <div class="row">
+         <div class="col">
+          <label>¿Cuánto tiempo piensas dedicarle a tu mascota?</label>
+          <br/>
+          <input type="text" class="form-control" name="pregunta4" id="text-pregunta4" required/>
+         </div>
+        <br/>
+         <div class="col">
+          <label>En caso de estar ausente por un tiempo, ¿quién cuidará de tu mascota?</label>
+          <br/>
+          <input type="text" class="form-control" name="pregunta5" id="text-pregunta5" required>
+         </div>
+        </div>
+        <br/>
+      </form>
+    </section>
+   </div> <!--div class="card-body"-->
+       <div class="card-footer">
+    <!--Boton encargado de guardar la informacion ingresada por el usuario-->
+       <button type="submit" class="btn btn-primary" id="guardar">Guardar</button>
+       </div>
+     </div> <!--div class="card"-->
+    </div>  <!--div class="container"-->
+    <!--boton para recuperar la informacion de la base de datos -->
+    <button type="submit" class="btn btn-primary" id="login">Boton de respuestas</button>
+  <br/>
+  <footer>
+      <!--importamos las librerias-->
+      <script src="/js/jquery-3.3.1.min.js"></script>
+      <script src="/js/main.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
+      <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+      <script>
+        // Initialize Firebase
+        var config = {
+        apiKey: "AIzaSyDpCeRJcHVVhTBK0HTkJMUTVXvGJnJ1A1A",
+        authDomain: "amigos-peludos.firebaseapp.com",
+        databaseURL: "https://amigos-peludos.firebaseio.com",
+        projectId: "amigos-peludos",
+        storageBucket: "amigos-peludos.appspot.com",
+        messagingSenderId: "892086692674"
+          };
+      firebase.initializeApp(config);
+      </script>
+  </footer>
+  </body>
+</html>
