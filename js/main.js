@@ -88,23 +88,43 @@ function validar(){
     alert(mensaje);
     }
 
+    var recomendacion = 0;
+    if(correcto==true){
+        if ($('#text-pregunta2').val()>=500000){
+            recomendacion+=1;
+        }
+        if ($('#text-pregunta3').val()>=200000){
+            recomendacion+=1;
+        }
+        if ($('#text-pregunta4').val()>=6){
+            recomendacion+=1;
+        }
+
+        if (recomendacion >= 3){
+            alert("Te recomendamos un perro");
+        }
+        else if(recomendacion ==2){
+            alert("Te recomendamos un gato");
+        }
+        else if(recomendacion == 1){
+            alert("Te recomendamos un peluche");
+        }
+    }
     
     /*creamos un condicional en el cual si el valor de "correcto" es true nos permita 
     guardar la informacion que luego mandaremos a la base de datos*/
     if (correcto == true){    
     var datos_form= {
+        fecha_solicitud:$('#fecha_solicitud').val(),
         nombre:$('#txt-name').val(),
         fecha_nacimiento:$('#date-nacimiento').val(),
-        
         email:$('#email-correo').val(),
         telefono:$('#text-telefono').val(),
         departamento:$('#departamentos').val(),
         ciudad:$('#ciudades').val(),
-        
         direccion:$('#text-direccion').val(), 
         ingresos:$('#text-pregunta2').val(),
         ingresos_mascota:$('#text-pregunta3').val(),
-        experiencia:$('#inlineRadio-experiencia').val(),
         tiempo_mascota:$('#text-pregunta4').val(),  
         };
         console.log(datos_form);
@@ -117,26 +137,7 @@ function validar(){
 //le indicamos al codigo que cuando se oprima el boton "guardar" ejecute la funcion "validar"
 $('#guardar').click(function(){
     validar();
-    var recomendacion = 0;
-    if ($('#text-pregunta2').val()>=500000){
-        recomendacion+=1;
-    }
-    if ($('#text-pregunta3').val()>=200000){
-        recomendacion+=1;
-    }
-    if ($('#text-pregunta4').val()>=6){
-        recomendacion+=1;
-    }
-
-    if (recomendacion >= 3){
-        alert("Te recomendamos un perro");
-    }
-    else if(recomendacion ==2){
-        alert("Te recomendamos un gato");
-    }
-    else if(recomendacion == 1){
-        alert("Te recomendamos un peluche");
-    }
+    
 
 });
 
